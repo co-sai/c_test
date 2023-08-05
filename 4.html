@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Input Boxes</title>
+    <style>
+        /* Style for input boxes */
+        input[type="text"] {
+            width: 80px;
+            height: 30px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        /* Style for 'x' marker */
+        .x-marker {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="inputBoxes"></div>
+
+    <script>
+        // Function to create the input boxes
+        function createInputBoxes(count) {
+            const inputBoxesDiv = document.getElementById('inputBoxes');
+
+            for (let i = 1; i <= count; i++) {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.name = 'inputBox' + i;
+
+                if (i % 4 === 0) {
+                    const xMarker = document.createElement('span');
+                    xMarker.className = 'x-marker';
+                    xMarker.textContent = 'x';
+                    input.value = 'x';
+                }
+
+                inputBoxesDiv.appendChild(input);
+            }
+        }
+
+        // Call the function to create 100 input boxes
+        createInputBoxes(100);
+    </script>
+</body>
+
+</html>
